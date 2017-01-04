@@ -22,10 +22,10 @@ class Customer(object):
         
     def __repr__(self):
         return ('name:{}: budget:{}').format(self.name, self.budget)
-
-def afford(self):
-    #need to make a afford function that filters through the bike_models list and prints bikes within customer's budget     
-        affordable = {}    
+    
+    def afford(self):
+    #need to make a afford function that filters through the bike_models list and prints bikes within customer's budget
+        affordable = {}  
         for bike in bike_models:
             if bike.selling_price <= self.budget:
                 affordable[bike_models] = True
@@ -33,10 +33,12 @@ def afford(self):
                 affordable[bike_models] = False
         return affordable
         
-def withinbudget(affordable):
+    def withinbudget(affordable):
         for bike in bike_models:
             if affordable[bike_models] == True:
                 print(bike.name) 
+        
+
 
 if __name__ == '__main__':
     bike1 = Bike('bike1', 30, 100)
@@ -48,4 +50,3 @@ if __name__ == '__main__':
     customers = [customer1]
     print(bike_models)
     print(customers)
-    withinbudget(affordable)
