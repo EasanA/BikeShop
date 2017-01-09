@@ -32,7 +32,7 @@ class BikeShop(object):
         shop_profit = 0
         profit_per_bike = bike.selling_price - bike.cost_price
         shop_profit += profit_per_bike 
-        print(shop_profit)
+        return shop_profit
 
 class Customer(object):
     def __init__(self, name, budget):
