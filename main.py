@@ -22,4 +22,4 @@ if __name__ == '__main__':
     customer2.buy(bike_shop,bike2)
     print('{} can afford {}'.format(customer3.name, bike_shop.afford(customer3)))
     customer3.buy(bike_shop,bike4)
-    print(bike_models)
+    print('Inventory:{}'.format(bike_models))
