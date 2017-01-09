@@ -25,11 +25,14 @@ class BikeShop(object):
         return affordable
         
     def update_inv(self, bike):   
-        pass
-        #run profit
+        self.bikes[bike] -= 1
+        self.profit(bike)
     
-    def profit(self):
-        pass
+    def profit(self, bike):
+        shop_profit = 0
+        profit_per_bike = bike.selling_price - bike.cost_price
+        shop_profit += profit_per_bike 
+        print(shop_profit)
 
 class Customer(object):
     def __init__(self, name, budget):
@@ -41,14 +44,14 @@ class Customer(object):
     
     def buy(self, bike_shop, bike):
          print(bike)
-         self.budget = self.budget - bike.selling_price
+         self.budget -= bike.selling_price
          print(self.budget)
          bike_shop.update_inv(bike)
         
 if __name__ == '__main__':
     bike1 = Bike('bike1', 30, 100)
     bike2 = Bike('bike2', 20, 300)
-    bike_models = {bike1: 1, bike2 : 2}
+    bike_models = {bike1: 4, bike2 : 2}
     bike_shop = BikeShop(bike_models)
     print(bike1.selling_price)
     customer1 = Customer('bob', 200)
@@ -59,3 +62,4 @@ if __name__ == '__main__':
     print(bike_shop.afford(customer1))
     customer1.buy(bike_shop,bike1)
     print(customer1)
+    print(bike_models)
