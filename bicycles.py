@@ -9,10 +9,10 @@ class Bike(object):
         return ('model:{}: price:{}').format(self.name, self.selling_price)
         
 class BikeShop(object):
-    def __init__(self, bikes):
+    def __init__(self, bikes, profit):
         self.margin = 1.2
         self.bikes = bikes
-        shop_profit = 0
+        self.profit = profit
         for bike in bikes:
             bike.selling_price = self.margin * bike.cost_price
             
@@ -27,14 +27,13 @@ class BikeShop(object):
         
     def update_inv(self, bike):   
         self.bikes[bike] -= 1
-        self.profit(bike)
+        self.shop_profit(bike)
     
-    def profit(self, bike):
-        shop_profit = 0
+    def shop_profit(self, bike):
         profit_per_bike = bike.selling_price - bike.cost_price
-        shop_profit += profit_per_bike 
-        print("Bikeshop's profit:{}".format(shop_profit))
-        return(shop_profit)
+        self.profit += profit_per_bike 
+        print("Bikeshop's profit:{}".format(self.profit))
+        return(self.profit)
 
 class Customer(object):
     def __init__(self, name, budget):
