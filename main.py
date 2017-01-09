@@ -10,12 +10,10 @@ if __name__ == '__main__':
     bike6 = Bike('bike6', 25, 400)
     bike_models = {bike1: 4, bike2 : 2, bike3 : 5, bike4 : 1, bike5 : 2, bike6: 4}
     bike_shop = BikeShop(bike_models)
-    print(bike1.selling_price)
     customer1 = Customer('Bob', 200)
     customer2 = Customer('Carol',500)
     customer3 = Customer('Bob', 1000)
     customers = [customer1, customer2, customer3]
-    print(bike_models)
     print(bike_shop.bikes)
     print(customers)
     print(bike_shop.afford(customer1))
