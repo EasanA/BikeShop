@@ -14,7 +14,23 @@ class BikeShop(object):
         self.bikes = bikes
         for bike in bikes:
             bike.selling_price = self.margin * bike.cost_price
+            
+            
+    def afford(self, customer):
+    #need to make a afford function that filters through the bike_models list and prints bikes within customer's budget
+        affordable =[]
+        for bike in self.bikes:
+            if bike.selling_price <= customer.budget:
+                affordable.append(bike) 
+        return affordable
+        
+    def update_inv(self, bike):   
+        pass
+        #run profit
     
+    def profit(self):
+        pass
+
 class Customer(object):
     def __init__(self, name, budget):
         self.name = name
@@ -23,30 +39,23 @@ class Customer(object):
     def __repr__(self):
         return ('name:{}: budget:{}').format(self.name, self.budget)
     
-    def afford(self):
-    #need to make a afford function that filters through the bike_models list and prints bikes within customer's budget
-        affordable = {}  
-        for bike in bike_models:
-            if bike.selling_price <= self.budget:
-                affordable[bike_models] = True
-            else: 
-                affordable[bike_models] = False
-        return affordable
+    def buy(self, bike_shop, bike):
+         print(bike)
+         self.budget = self.budget - bike.selling_price
+         print(self.budget)
+         bike_shop.update_inv(bike)
         
-    def withinbudget(affordable):
-        for bike in bike_models:
-            if affordable[bike_models] == True:
-                print(bike.name) 
-        
-
-
 if __name__ == '__main__':
     bike1 = Bike('bike1', 30, 100)
     bike2 = Bike('bike2', 20, 300)
-    bike_models = [bike1, bike2]
+    bike_models = {bike1: 1, bike2 : 2}
     bike_shop = BikeShop(bike_models)
     print(bike1.selling_price)
     customer1 = Customer('bob', 200)
     customers = [customer1]
     print(bike_models)
+    print(bike_shop.bikes)
     print(customers)
+    print(bike_shop.afford(customer1))
+    customer1.buy(bike_shop,bike1)
+    print(customer1)
