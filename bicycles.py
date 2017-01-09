@@ -12,6 +12,7 @@ class BikeShop(object):
     def __init__(self, bikes):
         self.margin = 1.2
         self.bikes = bikes
+        shop_profit = 0
         for bike in bikes:
             bike.selling_price = self.margin * bike.cost_price
             
@@ -32,7 +33,7 @@ class BikeShop(object):
         shop_profit = 0
         profit_per_bike = bike.selling_price - bike.cost_price
         shop_profit += profit_per_bike 
-        print(shop_profit)
+        print("Bikeshop's profit:{}".format(shop_profit))
         return(shop_profit)
 
 class Customer(object):
@@ -44,7 +45,7 @@ class Customer(object):
         return ('name:{}: budget:{}').format(self.name, self.budget)
     
     def buy(self, bike_shop, bike):
-         print(bike)
+         print('Bike sold:{}'.format(bike))
          self.budget -= bike.selling_price
-         print(self.budget)
+         print("{}'s Leftover Budget:{}".format(self.name, self.budget))
          bike_shop.update_inv(bike)
