@@ -9,8 +9,8 @@ class Bike(object):
         return ('model:{}: price:{}').format(self.name, self.selling_price)
         
 class BikeShop(object):
-    def __init__(self, bikes, profit):
-        self.margin = 1.2
+    def __init__(self, bikes, profit, margin):
+        self.margin = margin
         self.bikes = bikes
         self.profit = profit
         for bike in bikes:
@@ -24,7 +24,7 @@ class BikeShop(object):
             if bike.selling_price <= customer.budget:
                 affordable.append(bike) 
         return affordable
-        
+    
     def update_inv(self, bike):   
         self.bikes[bike] -= 1
         self.shop_profit(bike)
@@ -44,7 +44,10 @@ class Customer(object):
         return ('name:{}: budget:{}').format(self.name, self.budget)
     
     def buy(self, bike_shop, bike):
-         print('Bike sold:{}'.format(bike))
-         self.budget -= bike.selling_price
-         print("{}'s Leftover Budget:{}".format(self.name, self.budget))
-         bike_shop.update_inv(bike)
+        if bike_shop.bikes[bike] <= 0:
+            print('Sorry, we are out of {}.'.format(bike))
+        else:    
+            print('Bike sold:{}'.format(bike))
+            self.budget -= bike.selling_price
+            print("{}'s Leftover Budget:{}".format(self.name, self.budget))
+            bike_shop.update_inv(bike)

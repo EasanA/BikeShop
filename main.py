@@ -8,8 +8,8 @@ if __name__ == '__main__':
     bike4 = Bike('bike4', 19, 700)
     bike5 = Bike('bike5', 15, 900)
     bike6 = Bike('bike6', 25, 400)
-    bike_models = {bike1: 4, bike2 : 2, bike3 : 5, bike4 : 1, bike5 : 2, bike6: 4}
-    bike_shop = BikeShop(bike_models, 0)
+    bike_models = {bike1: 4, bike2 : 2, bike3 : 5, bike4 : 0, bike5 : 2, bike6: 4}
+    bike_shop = BikeShop(bike_models, 0, 1.2)
     customer1 = Customer('Bob', 200)
     customer2 = Customer('Carol',500)
     customer3 = Customer('Bob', 1000)
