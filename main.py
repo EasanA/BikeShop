@@ -12,7 +12,7 @@ if __name__ == '__main__':
     bike_shop = BikeShop(bike_models, 0, 1.2)
     customer1 = Customer('Bob', 200)
     customer2 = Customer('Carol',500)
-    customer3 = Customer('Bob', 1000)
+    customer3 = Customer('John', 1000)
     customers = [customer1, customer2, customer3]
     print(bike_shop.bikes)
     print(customers)
