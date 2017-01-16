@@ -45,7 +45,7 @@ class BikeShop(object):
         self.shop_profit(bike)
     
     def shop_profit(self, bike):
-        profit_per_bike = bike.selling_price - bike.cost_price
+        profit_per_bike = bike.selling_price - bike.prod_cost
         self.profit += profit_per_bike 
         print("Bikeshop's profit:{}".format(self.profit))
         return(self.profit)
